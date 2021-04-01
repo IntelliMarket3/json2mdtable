@@ -18,25 +18,12 @@ default_explain = "default"
 
 raw_json_input = """
 {
-    "aliId":"Gc90cd2Kkc",
-    "balance":233633426179560,
-    "costPoint":233633425413123,
-    "extMsg":"wl62rW7Are",
     "id":233633425860867,
     "openId":"1FaJr4xmIt",
     "phone":"8h0fTosM6W",
     "stuName":"RvAz5kWTFx",
     "stuNo":"NtULw5Njll",
     "thirdId":"mlDsFhpqr8",
-    "vipLevel":{
-        "bottomLine":233633440022008,
-        "ceilLine":233633441034303,
-        "discount":0.28634918326466463067703216438530944287776947021484375,
-        "id":233633441270411,
-        "levelName":"rJ08AAXorc",
-        "nextId":233633440288066,
-        "preId":233633439712289
-    }
 }
 """
 
@@ -68,14 +55,14 @@ def json_obj_ouput_md_table(table_name, json_obj):
 
             pass
     else:
-        if type(v) == int:
-                output += table_line_template % (str(k), "Number", v, default_explain)
-        elif type(v) == str:
-                output += table_line_template % (str(k), "String", v, default_explain)
-        elif type(v) == bool:
-                output += table_line_template % (str(k), "Boolean", v, default_explain)
-        elif type(v) == list:
-            if len(v) != 0:
+        if type(json_obj) == int:
+                output += table_line_template % ("type:int", "Number", json_obj, default_explain)
+        elif type(json_obj) == str:
+                output += table_line_template % ("type:str", "String", json_obj, default_explain)
+        elif type(json_obj) == bool:
+                output += table_line_template % ("type:bool", "Boolean", json_obj, default_explain)
+        elif type(json_obj) == list:
+            if len(json_obj) != 0:
                 example = v[0]
                 json_obj_ouput_md_table(table_name + "_" + re.sub("/", "", str(k)), example)
             output += table_line_template % (str(k), "List", "[ ... ]", default_explain)
