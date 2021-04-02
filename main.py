@@ -23,7 +23,7 @@ raw_json_input = """
     "phone":"8h0fTosM6W",
     "stuName":"RvAz5kWTFx",
     "stuNo":"NtULw5Njll",
-    "thirdId":"mlDsFhpqr8",
+    "thirdId":"mlDsFhpqr8"
 }
 """
 
